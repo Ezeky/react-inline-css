@@ -34,7 +34,7 @@ var InlineCss = createReactClass({
 	},
 	render: function () {
 		if(this.props.counter){
-			refCounter = this.props.counter;	
+			refCounter = parseInt(this.props.counter);	
 		}
 		var namespace     = this.props.namespace || "InlineCss-" + refCounter++;
 		var componentName = this.props.componentName || "&";
@@ -49,6 +49,7 @@ var InlineCss = createReactClass({
 		delete wrapperProps.componentName;
 		delete wrapperProps.stylesheet;
 		delete wrapperProps.wrapper;
+		delete wrapperProps.counter;
 
 		return React.createElement(
 			Wrapper,
